@@ -180,6 +180,7 @@
                 border: 1px solid $color-grey-2;
                 box-shadow: inset -2px -2px 0 0 $color-white-2, inset 2px 2px 0 0 $color-black-1;
                 padding-left: 1.6rem;
+                outline: none;
 
                 &::placeholder {
                     font-family: $font-regular;
@@ -197,6 +198,8 @@
                 box-shadow: inset -1px -1px 0 0 $color-grey-1, inset 1px 1px 0 0 $color-white-1;
                 @include displayFlex(null, null, flex-start, center);
                 cursor: pointer;
+                position: relative;
+                outline: none;
 
                 a {
                     margin-left: .4rem;
@@ -211,6 +214,19 @@
                     width: 3rem;
                     height: inherit;
                     @include displayFlex(null, null, center, center);
+                }
+
+                &:active {
+                    border: 1px solid black;
+                }
+
+                &:active:after {
+                    content: "";
+                    position: absolute;
+                    left: 2px;
+                    width: 9.5rem;
+                    height: 3rem;
+                    border: 1px dotted #110038;
                 }
             }
         }

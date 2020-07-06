@@ -348,6 +348,7 @@ html {
   -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
   padding-left: 1.6rem;
+  outline: none;
 }
 
 .header_search-content .text::-webkit-input-placeholder {
@@ -395,6 +396,8 @@ html {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  position: relative;
+  outline: none;
 }
 
 .header_search-content .submit a {
@@ -418,5 +421,18 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.header_search-content .submit:active {
+  border: 1px solid black;
+}
+
+.header_search-content .submit:active:after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  width: 9.5rem;
+  height: 3rem;
+  border: 1px dotted #110038;
 }
 /*# sourceMappingURL=main.css.map */
