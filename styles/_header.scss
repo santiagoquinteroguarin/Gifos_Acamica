@@ -1,0 +1,218 @@
+.header {
+    height: 24rem;
+    display: grid;
+    grid-template-columns: 10rem repeat(6, 1fr) 10rem;
+    grid-template-rows: 2.3rem 12rem 1fr;
+
+    &_preheader {
+        height: 100%;
+        grid-column: 1 / 9;
+        @include displayFlex(row, wrap, null, center);
+        background-image: $color-gradient-secondary;
+        p {
+            margin-left: .8rem;
+            font-size: 1.2rem;
+            font-family: $font-regular;
+            color: $color-white-1;
+        }
+    }
+
+    &_logo {
+        grid-column: 2 / 3;
+        height: 100%;
+        @include displayFlex(row, wrap, null, center);
+        img {
+            width: 10.3rem;
+            height: 6.4rem;
+        }
+    }
+
+    &_options {
+        grid-column: 5 / 8;
+        height: 100%;
+        
+        ul {
+            height: inherit;
+            @include displayFlex(row, wrap, flex-end, center);
+
+            li {
+                list-style: none;
+                @include displayFlex(null, null, center, center);
+                cursor: pointer;
+
+                // a --> normal
+                a{
+                    font-size: 1.6rem;
+                    font-family: $font-regular;
+                    color: $color-border-primary;
+                    text-decoration: none;
+                    span {
+                        border-bottom: .1rem solid $color-border-primary;
+                    }
+                }
+
+                &:first-child {
+                    a {
+                        position: relative;
+                        &:hover:after {
+                            content: "";
+                            top: -7.6px;
+                            left: -24px;
+                            position: absolute;
+                            width: 13.8rem;
+                            height: 3.1rem;
+                            border: .1rem dotted black;
+                        }
+                    }
+                }
+
+                // --> los dos primeros botones
+                &:not(:last-child) {
+                    width: 14.4rem;
+                    height: 3.6rem;
+                    background-color: $color-btn-primary;
+                    margin-right: 1.6rem;
+                    border: 1px solid $color-border-primary;
+                    box-shadow: inset -1px -1px 0 0 $color-bs-primary, inset 1px 1px 0 0 $color-bs-secondary;
+                    z-index: 10;
+                }
+
+                // --> segundo boton
+                &:nth-child(2) {
+                    @include displayFlex(null, null, flex-end, null);
+
+                    a {
+                        margin-right: 1rem;
+                        position: relative;
+                    }
+                    
+                    span {
+                        width: 3.6rem;
+                        height: inherit;
+                        border: 1px solid $color-border-primary;
+                        border-right: none;
+                        box-shadow: inset -1px -1px 0 0 $color-bs-primary, inset 1px 1px 0 0 $color-bs-secondary;
+                        position: relative;
+                        @include displayFlex(null, null, center, center);
+                    }
+
+                    &:hover {
+                            a::after {
+                                content: "";
+                                top: -7.6px;
+                                left: -12px;
+                                position: absolute;
+                                width: 10.2rem;
+                                height: 3.1rem;
+                                border: .1rem dotted black;
+                            }
+                    
+                            span::after{
+                                content: "";
+                                top: .1rem;
+                                position: absolute;
+                                z-index: 1;
+                                width: 3.1rem;
+                                height: 3.1rem;
+                                border: .1rem dotted black;
+                            }
+                    }
+                }
+
+                // --> ultimo boton
+                &:last-child {
+                    height: 3.6rem;
+                    &:hover::after {
+                        content: "";
+                        position: absolute;
+                        width: 8rem;
+                        height: 3.6rem;
+                        border: .1rem dotted black;
+                    }
+
+                    &:active {
+                        border: none;
+                        a{
+                            color: $color-grey-1;
+                            span {
+                                border-bottom: 1px solid $color-grey-1;;
+                            }
+                        }
+                    }
+
+                    &:active::after {
+                        border: none;
+                    }
+                }    
+            }
+        }
+    }
+
+    &_search {
+        grid-column: 2 / 8;
+        display: grid;
+        grid-template-rows: 2.3rem 1fr;
+        background: $color-background;
+        box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+
+        &-description {
+            grid-template-rows: 1 / 2;
+            background-image: $color-gradient-secondary;
+            @include displayFlex(null, null, null, center);
+            box-shadow: inset -2px 0px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+            p {
+                margin: .5rem;
+                font-family: $font-bold;
+                font-size: 1.4rem;
+                color: $color-white-1;
+            }
+        }
+
+        &-content {
+            grid-template-rows: 2 / 3;
+            @include displayFlex(null, null, null, center);
+
+            .text {
+                margin: 0 1rem 0 1.5rem;
+                width: 110rem;
+                height: 4.8rem;
+                background: $color-white-1;
+                border: 1px solid $color-grey-2;
+                box-shadow: inset -2px -2px 0 0 $color-white-2, inset 2px 2px 0 0 $color-black-1;
+                padding-left: 1.6rem;
+
+                &::placeholder {
+                    font-family: $font-regular;
+                    font-size: 1.6rem;
+                    color: $color-grey-1;
+                    line-height: 1.8rem;
+                }
+            }
+
+            .submit {
+                width: 10.2rem;
+                height: 3.6rem;
+                background: #E6E6E6;
+                border: 1px solid #808080;
+                box-shadow: inset -1px -1px 0 0 $color-grey-1, inset 1px 1px 0 0 $color-white-1;
+                @include displayFlex(null, null, flex-start, center);
+                cursor: pointer;
+
+                a {
+                    margin-left: .4rem;
+                    text-decoration: none;
+                    font-family: $font-regular;
+                    font-size: 1.6rem;
+                    color: $color-grey-1;
+                    line-height: 1.8rem;
+                }
+
+                span {
+                    width: 3rem;
+                    height: inherit;
+                    @include displayFlex(null, null, center, center);
+                }
+            }
+        }
+    }
+}
