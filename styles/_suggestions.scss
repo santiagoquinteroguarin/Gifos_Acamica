@@ -3,8 +3,8 @@
     width: 84vw;
     margin: 0 auto;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 5.5rem 3.2rem 2.2rem 30.5rem 5px;
-    grid-column-gap: 24px;
+    grid-template-rows: 5.5rem 3.2rem 2.2rem 30.5rem .5rem;
+    grid-column-gap: 2.4rem;
 
     &__today_we_suggest {
         grid-column: 1 / 5;
@@ -18,7 +18,7 @@
             margin: .7rem;
             font-family: $font-regular;
             font-size: 1.4rem;
-            color: $color-border-primary;
+            color: $color-blue-2;
         }
     }
 
@@ -45,23 +45,35 @@
     &__content {
         width: 100%;
         height: 100%;
-        background: #E6E6E6;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        background: $color-white-2;
+        box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+
         &_tags {
             @include displayFlex(null, null, null, center);
             width: 97%;
             height: 2.4rem;
             margin: .4rem .4rem 0 .5rem;
-            background-image: $color-gradient-secondary;
+            background-image: $color-blue-5;
         }
 
         &_gif {
-            width: 96.7%;
-            height: 88.3%;
+            width: 97.3%;
+            height: 89%;
             position: relative;
             z-index: 1;
             margin: .4rem .4rem 0 .5rem;
+            cursor: pointer;
 
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: .1rem dotted $color-blue-2;
+            }
+            
             &-btn {
                 z-index: 10;
                 position: absolute;
@@ -70,7 +82,7 @@
                 width: 8.1rem;
                 height: 3.4rem;
                 @include displayFlex(null, null, center, center);
-                background-color: $color-btn-gifs-primary;
+                background-color: $color-blue-4;
                 border: .1rem solid $color-purple-1;
                 box-shadow: inset -2px -2px 0 0 $color-blue-1, inset 2px 2px 0 0 $color-white-1;
                 text-decoration: none;
@@ -78,6 +90,21 @@
                 font-size: 1.4rem;
                 color: $color-white-1;
                 line-height: 1.8rem;
+
+                &:hover {
+                    background-color: $color-blue-3;
+                    box-shadow: none;
+                }
+
+                &:hover::after {
+                    content: "";
+                    position: absolute;
+                    top: .1rem;
+                    left: 1.72px;
+                    width: 96%;
+                    height: 94%;
+                    border: .1rem dotted $color-blue-2;
+                }
             }
         }
     }

@@ -3,8 +3,8 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 4rem 3.2rem repeat(3, 30rem) 10px;
-    grid-gap: 16px;
+    grid-template-rows: 4rem 3.2rem repeat(3, 30rem) 1rem;
+    grid-gap: 1.6rem;
 
     &__today {
         grid-column: 1 / 5;
@@ -18,7 +18,7 @@
             margin: .7rem;
             font-family: $font-regular;
             font-size: 1.4rem;
-            color: $color-border-primary;
+            color: $color-blue-2;
         }
     }
 
@@ -76,24 +76,31 @@
         background-color: mediumspringgreen;
         position: relative;
 
+        &-gif {
+            width: 100%;
+            height: 100%;
+        }
+
         &-tags {
             display: none;
         }
 
         &:hover {
-            background: #E6E6E6;
-            box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+            background: $color-white-2;
+            box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+            padding: .3rem;
+            cursor: pointer;
         }
 
         &:hover > &-tags {
             display: flex;
             position: absolute;
             z-index: 10;
-            bottom: 7px;
+            bottom: .4rem;
             left: 50%;
             transform: translate(-50%);
-            width: 95%;
-            height: 24px;
+            width: 98%;
+            height: 2.4rem;
             background-image: $color-gradient-secondary;
             @include displayFlex(null, null, null, center);
         }
@@ -101,12 +108,25 @@
         &:hover::after {
             content: "";
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 97%;
-            height: 97%;
-            border: .2rem dotted $color-blue-2;
+            top: .2rem;
+            left: .1rem;
+            width: 99%;
+            height: 98.5%;
+            border: .1rem dotted $color-blue-2;
+        }
+
+        &:nth-child(6):hover::after,
+        &:nth-child(11):hover::after {
+            content: "";
+            top: .2rem;
+            left: .1rem;
+            width: 99.5%;
+            height: 98.5%;
+        }
+
+        &:nth-child(6):hover > &-tags,
+        &:nth-child(11):hover > &-tags {
+            width: 99%;
         }
     }
 }

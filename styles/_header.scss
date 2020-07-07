@@ -44,10 +44,10 @@
                 a{
                     font-size: 1.6rem;
                     font-family: $font-regular;
-                    color: $color-border-primary;
+                    color: $color-blue-2;
                     text-decoration: none;
                     span {
-                        border-bottom: .1rem solid $color-border-primary;
+                        border-bottom: .1rem solid $color-blue-2;
                     }
                 }
 
@@ -70,10 +70,10 @@
                 &:not(:last-child) {
                     width: 14.4rem;
                     height: 3.6rem;
-                    background-color: $color-btn-primary;
+                    background-color: $color-pink-4;
                     margin-right: 1.6rem;
-                    border: 1px solid $color-border-primary;
-                    box-shadow: inset -1px -1px 0 0 $color-bs-primary, inset 1px 1px 0 0 $color-bs-secondary;
+                    border: 1px solid $color-blue-2;
+                    box-shadow: inset -1px -1px 0 0 $color-purple-2, inset 1px 1px 0 0 $color-white-1;
                     z-index: 10;
                 }
 
@@ -89,9 +89,9 @@
                     span {
                         width: 3.6rem;
                         height: inherit;
-                        border: 1px solid $color-border-primary;
+                        border: 1px solid $color-blue-2;
                         border-right: none;
-                        box-shadow: inset -1px -1px 0 0 $color-bs-primary, inset 1px 1px 0 0 $color-bs-secondary;
+                        box-shadow: inset -1px -1px 0 0 $color-purple-2, inset 1px 1px 0 0 $color-white-1;
                         position: relative;
                         @include displayFlex(null, null, center, center);
                     }
@@ -152,7 +152,7 @@
         grid-column: 2 / 8;
         display: grid;
         grid-template-rows: 2.3rem 1fr;
-        background: $color-background;
+        background: $color-white-2;
         box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
 
         &-description {
