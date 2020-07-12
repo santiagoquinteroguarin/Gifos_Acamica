@@ -19,11 +19,22 @@
 
         <div class="header_options">
             <ul>
-                <li><a href="#">Crear Guifos</a></li>
-                <li><a href="#">Elegir tema</a>
-                    <span><img src="/assets/dropdown.svg" alt=""></span>
+                <li>
+                    <a href="#">Crear Guifos</a>
                 </li>
-                <li><a href="#"><span>M</span>is Guifos</a></li>
+                <li>
+                    <a class="change_theme" href="#">Elegir tema</a>
+                    <span class="arrow-down" onclick="dropDown()">
+                        <img src="/assets/dropdown.svg" alt="">
+                        <div id="dropdown-content" class="dropdown-content">
+                            <a href="#"><span class="first-letter">S</span>ailor Day</a>
+                            <a href="#">Sailor Night</a>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <a href="#"><span class="f-letter">M</span>is Guifos</a>
+                </li>
             </ul>
         </div>
 
@@ -32,8 +43,8 @@
                 <p>Buscar</p>
             </div>
             <div class="header_search-content">
-                <input class="text" type="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button class="submit">
+                <input id="search" autocomplete="off" class="text" type="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button class="submit" onclick="callKeyword()">
                     <span><img id="loupe" src="/assets/lupa_inactive.svg" alt=""></span>
                     <a id="btn-search" href="#">Buscar</a>
                 </button>
@@ -50,24 +61,28 @@
         <div class="suggestions__content suggestions__content-1">
             <div class="suggestions__content_tags"></div>
             <div class="suggestions__content_gif">
+                <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-2">
             <div class="suggestions__content_tags"></div>
             <div class="suggestions__content_gif">
+                <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-3">
             <div class="suggestions__content_tags"></div>
             <div class="suggestions__content_gif">
+                <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-4">
             <div class="suggestions__content_tags"></div>
             <div class="suggestions__content_gif">
+                <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
@@ -80,7 +95,6 @@
             <p>Tendencias:</p>
         </div>
         <div class="trendings__content trendings__content-1">
-            <img class="trendings__content-gif" src="" alt="">
             <p class="trendings__content-tags"></p>
         </div>
         <div class="trendings__content trendings__content-2">

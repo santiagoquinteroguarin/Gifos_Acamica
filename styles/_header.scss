@@ -41,19 +41,21 @@
                 cursor: pointer;
 
                 // a --> normal
-                a{
+                a {
                     font-size: 1.6rem;
                     font-family: $font-regular;
                     color: $color-blue-2;
                     text-decoration: none;
-                    span {
-                        border-bottom: .1rem solid $color-blue-2;
-                    }
                 }
 
                 &:first-child {
+                    &:hover {
+                        background-color: $color-pink-1;
+                    }
+
                     a {
                         position: relative;
+
                         &:hover:after {
                             content: "";
                             top: -7.6px;
@@ -79,49 +81,99 @@
 
                 // --> segundo boton
                 &:nth-child(2) {
+                    width: 167px;
                     @include displayFlex(null, null, flex-end, null);
 
-                    a {
-                        margin-right: 1rem;
+                    .change_theme {
+                        margin-right: 2rem;
                         position: relative;
                     }
                     
-                    span {
+                    .arrow-down {
                         width: 3.6rem;
                         height: inherit;
-                        border: 1px solid $color-blue-2;
+                        border: .1rem solid $color-blue-2;
                         border-right: none;
                         box-shadow: inset -1px -1px 0 0 $color-purple-2, inset 1px 1px 0 0 $color-white-1;
                         position: relative;
+                        outline: none;
                         @include displayFlex(null, null, center, center);
+
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            bottom: -103px;
+                            left: -131px;
+                            width: 16.7rem;
+                            height: 10.2rem;
+                            background-color: $color-white-2;
+                            padding: 1rem;
+                            flex-direction: column;
+                            box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+                            outline: none;
+                            
+                            a {
+                                background-color: $color-white-4;
+                                height: 3.6rem;
+                                @include displayFlex(null, null, null, center);
+                                padding-left: 1rem;
+                                font-family: $font-regular;
+                                font-size: 1.6rem;
+                                color: $color-blue-2;
+                                letter-spacing: 0;
+                                line-height: 2.2rem;
+                                outline: none;
+
+                                .first-letter {
+                                    text-decoration: underline;
+                                }
+
+                                &:first-child {
+                                    margin-bottom: .8rem;
+                                    background: $color-white-4;
+                                    border: .1rem solid $color-pink-6;
+                                    box-shadow: inset -1px -1px 0 0 $color-pink-2, inset 1px 1px 0 0 $color-white-1;
+                                }
+
+                                &:last-child {
+                                    background: $color-white-5;
+                                    border: .1rem solid $color-grey-3;
+                                    box-shadow: inset -1px -1px 0 0 $color-grey-1, inset 1px 1px 0 0 $color-white-1;
+                                }
+                            }
+                        }
                     }
 
                     &:hover {
-                            a::after {
-                                content: "";
-                                top: -7.6px;
-                                left: -12px;
-                                position: absolute;
-                                width: 10.2rem;
-                                height: 3.1rem;
-                                border: .1rem dotted $color-blue-2;
-                            }
-                    
-                            span::after{
-                                content: "";
-                                top: .1rem;
-                                position: absolute;
-                                z-index: 1;
-                                width: 3.1rem;
-                                height: 3.1rem;
-                                border: .1rem dotted $color-blue-2;
-                            }
+                        background-color: $color-pink-1;
+                        .change_theme::after {
+                            content: "";
+                            top: -7.6px;
+                            left: -25px;
+                            position: absolute;
+                            width: 12.5rem;
+                            height: 3.1rem;
+                            border: .1rem dotted $color-blue-2;
+                        }
+                        
+                        .arrow-down::after{
+                            content: "";
+                            top: .1rem;
+                            position: absolute;
+                            z-index: 1;
+                            width: 3.1rem;
+                            height: 3.1rem;
+                            border: .1rem dotted $color-blue-2;
+                        }
                     }
                 }
 
                 // --> ultimo boton
                 &:last-child {
                     height: 3.6rem;
+                    .f-letter {
+                        border-bottom: .1rem solid $color-blue-2;
+                    }
                     &:hover::after {
                         content: "";
                         position: absolute;
@@ -132,10 +184,10 @@
 
                     &:active {
                         border: none;
-                        a{
+                        a {
                             color: $color-grey-1;
-                            span {
-                                border-bottom: 1px solid $color-grey-1;;
+                            .f-letter {
+                                border-bottom: .1rem solid $color-grey-1;
                             }
                         }
                     }
@@ -194,7 +246,7 @@
                 width: 10.2rem;
                 height: 3.6rem;
                 background: #E6E6E6;
-                border: 1px solid #808080;
+                border: 1px solid $color-grey-3;
                 box-shadow: inset -1px -1px 0 0 $color-grey-1, inset 1px 1px 0 0 $color-white-1;
                 @include displayFlex(null, null, flex-start, center);
                 cursor: pointer;
