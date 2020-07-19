@@ -1,51 +1,86 @@
-// gradients
-$color-gradient-primary: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
-$color-gradient-secondary: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
-// gris
-$color-grey-1: #B4B4B4;
-$color-grey-2: #979797;
-$color-grey-3: #808080;
-// white
-$color-white-1: #FFFFFF;
-$color-white-2: #E6E6E6;
-$color-white-3: #FFFAFE;
-$color-white-4: #FFF4FD;
-$color-white-5: #F0F0F0;
-// black
-$color-black-1: #000000;
-// pink
-$color-pink-1: #E6BBE2;
-$color-pink-2: #E6DCE4;
-$color-pink-3: #80687D;
-$color-pink-4: #F7C9F3;
-$color-pink-5: #EE3EFE;
-$color-pink-6: #CCA6C9;
-// purple
-$color-purple-1: #4C2F99;
-$color-purple-2: #997D97;
-// blue
-$color-blue-1: #284F99;
-$color-blue-2: #110038;
-$color-blue-3: #3A72DB;
-$color-blue-4: #4180F6;
-$color-blue-5: #2E32FB;
-
-// Fonts
-$font-regular: ChakraPetch-Regular;
-$font-bold: ChakraPetch-Bold;
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
 html {
     box-sizing: border-box;
     font-size: 62.5%; //1rem = 10px -- 10px/16px = 62.5%
+    // ---- fonts ----
+    --font-regular: 'ChakraPetch-Regular';
+    --font-bold: 'ChakraPetch-Bold';
+    // ---- gradi ----ents
+    --color-gradient-primary: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    --color-gradient-secondary: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    // borders
+    --border: .1rem dotted #110038;
+    --border-2: .1rem dotted #110038;
+    --border-3: 1px solid #110038;
+    --border-4: .1rem solid #808080;
+    // ---- colors ----
+    // --> background
+    --bg: #FFFFFF;
+    // --> gray
+    --color-grey-1: #B4B4B4;
+    --color-grey-2: #979797;
+    --color-grey-3: #808080;
+    --color-grey-4: #8F8F8F;
+    // --> white
+    --color-white-1: #FFFFFF;
+    --color-white-2: #E6E6E6;
+    --color-white-3: #FFFAFE;
+    --color-white-4: #FFF4FD;
+    --color-white-5: #F0F0F0;
+    --color-white-6: #DBDBDB;
+    // --> blue
+    --color-blue-1: #284F99;
+    --color-blue-2: #110038;
+    --color-blue-3: #3A72DB;
+    --color-blue-4: #4180F6;
+    --color-blue-5: #2E32FB;
+    // --> purple
+    --color-purple-1: #4C2F99;
+    --color-purple-2: #997D97;
+    // --> pink
+    --color-pink-1: #E6BBE2;
+    --color-pink-2: #E6DCE4;
+    --color-pink-3: #80687D;
+    --color-pink-4: #F7C9F3;
+    --color-pink-5: #EE3EFE;
+    --color-pink-6: #CCA6C9;
+    // boxs shadows
+    --box-shadow-1: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    --box-shadow-2: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    --box-shadow-3: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+    --box-shadow-4: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    --box-shadow-5: inset -2px 0px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    --box-shadow-6: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #FFFFFF;
+    // color text - dropdown
+    --color-text: #110038;
+    // color background - dropdown
+    --bg-dropdon: #F0F0F0;
+}
+
+html[data-theme='dark'] {
+    --color-gradient-primary: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    --color-gradient-secondary: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    // borders
+    --border: .1rem dotted #110038;
+    --border-2: .1rem dotted #FFFFFF;
+    --border-3: none;
+    // background
+    --bg: #110038;
+    // ---- colors ----
+    // white
+    --color-white-2: #B4B4B4;
+    // blue
+    --color-blue-2: #FFFFFF;
+    // pink
+    --color-pink-1: #CE36DB;
+    --color-pink-4: #EE3EFE;
+    // color text - dropdown
+    --color-text: #110038;
+    --color-text-hover: #FFFFFF;
+    // color background - dropdown
+    --bg-dropdown: #2E32FB;
+    --color-white-5: #CCCCCC;
+}
+
+body {
+    background-color: var(--bg);
 }

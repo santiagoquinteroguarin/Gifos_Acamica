@@ -1,16 +1,49 @@
 // Event to input search - home
 document.querySelector('.text').addEventListener('click', changeColorBtn);
 
+// Change loupe and color button search
 function changeColorBtn(e) {
     e.preventDefault();
-    let color = document.querySelector('.submit');
-    color.style.background = '#F7C9F3';
-    color.style.border = '1px solid black';
-    let loupe = document.querySelector('#loupe');
-    loupe.src = '/assets/lupa.svg'
-    let textBtn = document.querySelector('#btn-search');
-    textBtn.style.color = '#110038';
+    let element = document.getElementById('html').attributes;
+
+    if(element[2].value === 'dark') {
+        // change loupe
+        let loupe = document.getElementById('loupe');
+        loupe.src = '/assets/lupa_light.svg';
+        // change text color button
+        let textBtn = document.querySelector('#btn-search');
+        textBtn.style.color = '#FFFFFF';
+        // change background button search
+        let color = document.querySelector('.submit');
+        color.style.background = '#EE3EFE';
+        color.style.border = '1px solid #110038';
+    } else {
+        // change luope
+        let loupe = document.getElementById('loupe');
+        loupe.src = '/assets/lupa.svg';
+        // change text color button
+        let textBtn = document.querySelector('#btn-search');
+        textBtn.style.color = '#110038';
+        // change background button search
+        let color = document.querySelector('.submit');
+        color.style.background = '#F7C9F3';
+        color.style.border = '1px solid #110038';
+    }
 }
+
+// dropdown
+function dropDown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function (e) {
+    if (!e.target.matches(".arrow-down")) {
+      var myDropdown = document.getElementById("dropdown");
+      if (myDropdown.classList.contains("show")) {
+        myDropdown.classList.remove("show");
+      }
+    }
+};
 
 // API
 const apiKey = '&api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
@@ -66,10 +99,3 @@ getGifDataTrendings()
     .catch(function(error) {
         console.error('ERROR' + error);
     })
-
-
-// dropdown
-function dropDown() {
-    var toggle = document.getElementById("dropdown-content");
-    (toggle.style.display === "none") ? toggle.style.display = "flex" : toggle.style.display = "none";
-}

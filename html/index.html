@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html id="html" lang="es" data-theme='light'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/main.css">
-    <title>GIFOS</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/main.css">
+	<title>GIFOS</title>
 </head>
 <body>
     <!-- start Header -->
@@ -14,7 +14,7 @@
         </div>
 
         <picture class="header_logo">
-            <img src="/assets/gifOF_logo.png" alt="">
+            <img class="img-logo" alt="">
         </picture>
 
         <div class="header_options">
@@ -25,10 +25,10 @@
                 <li>
                     <a class="change_theme" href="#">Elegir tema</a>
                     <span class="arrow-down" onclick="dropDown()">
-                        <img src="/assets/dropdown.svg" alt="">
-                        <div id="dropdown-content" class="dropdown-content">
-                            <a href="#"><span class="first-letter">S</span>ailor Day</a>
-                            <a href="#">Sailor Night</a>
+                        <img id="arrow" alt="">
+                        <div id="dropdown" class="dropdown-content">
+                            <a class="change_theme-light" href="#"><span class="first-letter">S</span>ailor Day</a>
+                            <a class="change_theme-dark" href="#">Sailor Night</a>
                         </div>
                     </span>
                 </li>
@@ -45,13 +45,24 @@
             <div class="header_search-content">
                 <input id="search" autocomplete="off" class="text" type="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
                 <button class="submit" onclick="callKeyword()">
-                    <span><img id="loupe" src="/assets/lupa_inactive.svg" alt=""></span>
+                    <span><img id="loupe" src="/assets/Combined Shape.svg" alt=""></span>
                     <a id="btn-search" href="#">Buscar</a>
                 </button>
             </div>
+            <!-- <div class="keywords" id="cosa">
+                <a class="keyword_result">Resultado de busqueda sugerido</a>
+                <a class="keyword_result">Resultado similar de busqueda</a>
+                <a class="keyword_result">otro más</a> 
+            </div> -->
         </section>
+
+        </div>
     </header>
     <!-- End Header -->
+    <script src="/js/changeTheme.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
 
     <!-- Start Suggestions -->
     <section class="suggestions">
@@ -90,7 +101,7 @@
     <!-- End Suggestions -->
 
     <!-- Start Trendings -->
-    <section class="trendings">
+    <!-- <section class="trendings">
         <div class="trendings__today">
             <p>Tendencias:</p>
         </div>
@@ -124,8 +135,5 @@
         <div class="trendings__content trendings__content-10">
             <p class="trendings__content-tags"></p>
         </div>
-    </section>
+    </section> -->
     <!-- End Trendings -->
-    <script src="/js/main.js"></script>
-</body>
-</html>

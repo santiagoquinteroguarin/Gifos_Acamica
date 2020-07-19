@@ -9,16 +9,16 @@
     &__today {
         grid-column: 1 / 5;
         grid-row: 2 / 3;
-        background: $color-white-3;
-        border: .1rem solid $color-pink-1;
-        box-shadow: inset -2px -2px 0 0 $color-pink-2, inset 2px 2px 0 0 $color-pink-3;
+        background: var(--color-white-3);
+        border: .1rem solid var(--color-pink-1);
+        box-shadow: inset -2px -2px 0 0 var(--color-pink-2), inset 2px 2px 0 0 var(--color-pink-3);
         @include displayFlex(null, null, null, center);
 
         p {
             margin: .7rem;
-            font-family: $font-regular;
+            font-family: var(--font-regular);
             font-size: 1.4rem;
-            color: $color-blue-2;
+            color: var(--color-blue-2);
         }
     }
 
@@ -73,7 +73,6 @@
     }
 
     &__content {
-        background-color: mediumspringgreen;
         position: relative;
 
         &-gif {
@@ -86,8 +85,8 @@
         }
 
         &:hover {
-            background: $color-white-2;
-            box-shadow: inset -2px -2px 0 0 $color-grey-1, inset 2px 2px 0 0 $color-white-1;
+            background: var(--color-white-2);
+            box-shadow: inset -2px -2px 0 0 var(--color-grey-1), inset 2px 2px 0 0 var(--color-white-1);
             padding: .3rem;
             cursor: pointer;
         }
@@ -101,7 +100,7 @@
             transform: translate(-50%);
             width: 98%;
             height: 2.4rem;
-            background-image: $color-gradient-secondary;
+            background-image: var(--color-gradient-secondary);
             @include displayFlex(null, null, null, center);
         }
 
@@ -112,7 +111,7 @@
             left: .1rem;
             width: 99%;
             height: 98.5%;
-            border: .1rem dotted $color-blue-2;
+            border: .1rem dotted var(--color-blue-2);
         }
 
         &:nth-child(6):hover::after,
