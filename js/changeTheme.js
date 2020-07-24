@@ -37,3 +37,50 @@ function changeCustom() {
 }
 
 changeCustom();
+
+// Event to input search - home ---------------------------------------------
+document.querySelector('.text').addEventListener('click', changeColorBtn);
+
+// Change loupe and color button search
+function changeColorBtn(e) {
+    e.preventDefault();
+    let element = document.getElementById('html').attributes;
+
+    if(element[2].value === 'dark') {
+        // change loupe
+        let loupe = document.getElementById('loupe');
+        loupe.src = '/assets/lupa_light.svg';
+        // change text color button
+        let textBtn = document.querySelector('#btn-search');
+        textBtn.style.color = '#FFFFFF';
+        // change background button search
+        let color = document.querySelector('.submit');
+        color.style.background = '#EE3EFE';
+        color.style.border = '1px solid #110038';
+    } else {
+        // change luope
+        let loupe = document.getElementById('loupe');
+        loupe.src = '/assets/lupa.svg';
+        // change text color button
+        let textBtn = document.querySelector('#btn-search');
+        textBtn.style.color = '#110038';
+        // change background button search
+        let color = document.querySelector('.submit');
+        color.style.background = '#F7C9F3';
+        color.style.border = '1px solid #110038';
+    }
+}
+
+// dropdown --------------------------------------------------------
+function dropDown() {
+    document.getElementById("dropdown").classList.toggle("show");
+}
+
+window.onclick = function (e) {
+    if (!e.target.matches(".arrow-down")) {
+      var myDropdown = document.getElementById("dropdown");
+      if (myDropdown.classList.contains("show")) {
+        myDropdown.classList.remove("show");
+      }
+    }
+};

@@ -54,6 +54,9 @@ html {
     --color-text: #110038;
     // color background - dropdown
     --bg-dropdon: #F0F0F0;
+    // baackground-btn
+    --bg-btn: #4180F6;
+    --bg-btn-hover: #3A72DB;
 }
 
 html[data-theme='dark'] {
@@ -74,11 +77,13 @@ html[data-theme='dark'] {
     --color-pink-1: #CE36DB;
     --color-pink-4: #EE3EFE;
     // color text - dropdown
-    --color-text: #110038;
     --color-text-hover: #FFFFFF;
     // color background - dropdown
     --bg-dropdown: #2E32FB;
     --color-white-5: #CCCCCC;
+    // baackground-btn
+    --bg-btn: #2E32FB;
+    --bg-btn-hover: #2629CC;
 }
 
 body {

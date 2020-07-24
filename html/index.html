@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="html" lang="es" data-theme='light'>
+<html id="html" lang="es" data-theme='dark'>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
             </div>
             <div class="header_search-content">
                 <input id="search" autocomplete="off" class="text" type="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button class="submit" onclick="callKeyword()">
+                <button id='btn-submit' class="submit">
                     <span><img id="loupe" src="/assets/Combined Shape.svg" alt=""></span>
                     <a id="btn-search" href="#">Buscar</a>
                 </button>
@@ -59,10 +59,6 @@
         </div>
     </header>
     <!-- End Header -->
-    <script src="/js/changeTheme.js"></script>
-    <script src="/js/main.js"></script>
-</body>
-</html>
 
     <!-- Start Suggestions -->
     <section class="suggestions">
@@ -70,28 +66,40 @@
             <p>Hoy te sugerimos:</p>
         </div>
         <div class="suggestions__content suggestions__content-1">
-            <div class="suggestions__content_tags"></div>
+            <div class="suggestions__content_tags">
+                <p class="text-tags"></p>
+                <img src="/assets/close.svg" alt="">
+            </div>
             <div class="suggestions__content_gif">
                 <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-2">
-            <div class="suggestions__content_tags"></div>
+            <div class="suggestions__content_tags">
+                <p class="text-tags"></p>
+                <img src="/assets/close.svg" alt="">
+            </div>
             <div class="suggestions__content_gif">
                 <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-3">
-            <div class="suggestions__content_tags"></div>
+            <div class="suggestions__content_tags">
+                <p class="text-tags"></p>
+                <img src="/assets/close.svg" alt="">
+            </div>
             <div class="suggestions__content_gif">
                 <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
             </div>
         </div>
         <div class="suggestions__content suggestions__content-4">
-            <div class="suggestions__content_tags"></div>
+            <div class="suggestions__content_tags">
+                <p class="text-tags"></p>
+                <img src="/assets/close.svg" alt="">
+            </div>
             <div class="suggestions__content_gif">
                 <img class="suggestions__content_gif-giphy" src="" alt="">
                 <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
@@ -101,39 +109,65 @@
     <!-- End Suggestions -->
 
     <!-- Start Trendings -->
-    <!-- <section class="trendings">
+    <section class="trendings">
         <div class="trendings__today">
             <p>Tendencias:</p>
         </div>
         <div class="trendings__content trendings__content-1">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-2">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-3">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-4">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-5">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-6">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-7">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-8">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-9">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
         <div class="trendings__content trendings__content-10">
-            <p class="trendings__content-tags"></p>
+            <div class="trendings__content-tags">
+                <p class="trendings-tags"></p>
+            </div>
         </div>
-    </section> -->
+    </section>
     <!-- End Trendings -->
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/changeTheme.js"></script>
+    
+    <!-- <script src="/js/fetch.js"></script> -->
+</body>
+</html>
