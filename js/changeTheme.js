@@ -2,14 +2,14 @@
 let changeThemeLigth = document.querySelector('.change_theme-light');
 let changeThemeDark = document.querySelector('.change_theme-dark');
 
-// change theme to ligth
+// CTA - change theme to ligth
 changeThemeLigth.addEventListener('click', function() {
     document.documentElement.setAttribute('data-theme', 'light');
     // change assets custom
     changeCustom();
 })
 
-// change theme to dark
+// CTA - change theme to dark
 changeThemeDark.addEventListener('click', function() {
     document.documentElement.setAttribute('data-theme', 'dark');
     // change assets custom
@@ -38,10 +38,10 @@ function changeCustom() {
 
 changeCustom();
 
-// Event to input search - home ---------------------------------------------
+// CTA - Event to input search - home ---------------------------------------------
 document.querySelector('.text').addEventListener('click', changeColorBtn);
 
-// Change loupe and color button search
+// CTA - Change loupe and color button search
 function changeColorBtn(e) {
     e.preventDefault();
     let element = document.getElementById('html').attributes;
@@ -71,16 +71,32 @@ function changeColorBtn(e) {
     }
 }
 
-// dropdown --------------------------------------------------------
+// CTA - dropdown --------------------------------------------------------
 function dropDown() {
     document.getElementById("dropdown").classList.toggle("show");
 }
 
+function keyword() {
+    document.getElementById("keywordId").classList.toggle("showK");
+}
+
 window.onclick = function (e) {
-    if (!e.target.matches(".arrow-down")) {
-      var myDropdown = document.getElementById("dropdown");
-      if (myDropdown.classList.contains("show")) {
-        myDropdown.classList.remove("show");
-      }
+    let dropdown = document.getElementById("dropdown")
+    let keyword = document.getElementById("keywordId")
+
+    // close all
+    if (!e.target.matches(".arrow-down") && !e.target.matches('.keywords')) {
+        dropdown.classList.remove('show');
+        // keyword.classList.remove('showK');
+    }
+
+    // close search
+    if (e.target.matches('.keywords')) {
+        dropdown.classList.remove('show');
+    }
+
+    // close dropdown
+    if (e.target.matches('.arrow-down')) {
+        keyword.classList.remove('showK');
     }
 };

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" data-theme='dark'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create gif</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+</head>
+<body>
+    <div class="preheader__g">
+        <p>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+    </div>
+    <div class="container">
+        <a href="/html/index.html" class="container__arrow-left">
+            <img src="/assets/arrow.svg" alt="">
+        </a>
+        <div class="container__logo">
+            <img src="/assets/gifOF_logo.png" alt="">
+        </div>
+    </div>
+
+    <div class="wrap-content">
+        <!-- create gif -->
+        <section class="create__gif">
+            <div class="create__gif-header">
+                <p>Crear Guifos</p>
+            </div>
+            <div class="create__gif-photo">
+                <img src="/assets/window img.png" alt="">
+            </div>
+            <div class="create__gif-title">
+                <p><strong>Aquí podrás crear tus propios guifos</strong></p>
+            </div>
+            <div class="create__gif-text">
+                <p>
+                    Crear tu <strong>guifo</strong> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
+                    personalizados. Los pasos para crear tu guifo son: <br><br>
+                    <strong>1)</strong> Dar permisos de acceso a la cámara (sólo por el tiempo de uso) <br><br>
+                    <strong>2)</strong> Capturar tu momento guifo <br><br>
+                    <strong>3)</strong> Revisar el momento <br><br>
+                    <strong>4)</strong> Listo para subir y compartir! <br><br>
+                    ¿Quieres comenzar a crear tu <strong>guifo</strong> ahora? <br>
+                </p>
+            </div>
+            <div class="create__gif-wrap-btn">
+                <a href="/html/index.html">Cancelar</a>
+                <a href="#" onclick="captureGif()">Comenzar</a>
+            </div>
+        </section>
+        
+        <!-- capture gif -->
+        <section class="capture-gif">
+            <div class="capture-gif-title_text">
+                <p>Un Chequeo Antes de Empezar</p>
+                <div class="capture-gif-title_text-close">
+                    <img src="/assets/close.svg" alt="">
+                </div>
+            </div>
+            <div class="capture-gif-camara">
+                <video id="video" autoplay="" playsinline=""></video>
+            </div>
+            <div class="capture-gif-btn">
+                <a class="capture-gif-btn-capture" id="start" href="#"><span><img src="/assets/camera.svg" alt=""></span>Capturar</a>
+                <a class="capture-gif-btn-stop" id="stop" href="#"><span><img src="/assets/recording_dark.svg" alt=""></span>Listo</a>
+            </div>
+        </section>
+        <div class="content-gif">
+            <img class="gif" src="" alt="">
+        </div>
+    </div>
+
+    <div id="myGuifos" class="myGifs">
+        <p>Mis guifos:</p>
+    </div>
+
+    <script src="/js/createGifos.js"></script>
+</body>
+</html>

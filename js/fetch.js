@@ -61,7 +61,7 @@ class FETCHAPI {
             arrayElements[i].appendChild(gif);
             tags(i, random);
         }
-
+        // print tags
         function tags(i, random) {
             let tags = arrayGifs[random].slug;
             trendings_tags[i].innerHTML = tags;
@@ -75,7 +75,7 @@ class FETCHAPI {
             gifsSuggestions[i].src = arrayGifs[random].images.preview_webp.url;
             tags(i, random);
         }
-    
+        // print tags
         function tags(i, random) {
             let tags = arrayGifs[random].slug;
             tagsSuggestions[i].innerHTML = tags;
@@ -92,7 +92,7 @@ const GIFS_TRENDINGS = new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
 // get data gifs keyword - page load ------------------------------------
 const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').getDataApiKeyword()
     .then((response) => {
-        // get render gifs suggestions
+        //  render gifs suggestions
         new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').renderSuggestions(response)
     })
     .catch((error) => console.error(error))
@@ -103,7 +103,7 @@ document.querySelector('#btn-submit').addEventListener('click', function(){
     let gifKeyword = document.getElementById('search').value;
     const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, gifKeyword).getDataApiKeyword()
     .then((response) => {
-        // get render gifs suggestions
+        // render gifs suggestions
         new FETCHAPI(URL_KEYWORD, APIKEY,  gifKeyword).renderSuggestions(response)
     })
     .catch((error) => console.error(error))
