@@ -1,7 +1,7 @@
 // parameters
 const APIKEY = '&api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
-const URL_KEYWORD = 'http://api.giphy.com/v1/gifs/search?q=';
-const URL_TRENDINGS = 'http://api.giphy.com/v1/gifs/trending?rating=g';
+const URL_KEYWORD = 'https://api.giphy.com/v1/gifs/search?q=';
+const URL_TRENDINGS = 'https://api.giphy.com/v1/gifs/trending?rating=g';
 
 // get number of items
 let gifsSuggestions = document.querySelectorAll('.suggestions__content_gif-giphy');
@@ -63,21 +63,22 @@ class FETCHAPI {
         }
         // print tags
         function tags(i, random) {
-            let tags = arrayGifs[random].slug;
+            let tags = arrayGifs[random].title;
             trendings_tags[i].innerHTML = tags;
         }
     }
 
     // print gifs of suggestions
     renderSuggestions(arrayGifs) {
+        console.log(arrayGifs)
         for(let i of gifsSuggestions.keys()){
-            let random = Math.floor(Math.random() * (99 - 1) + 1);
+            let random = Math.floor(Math.random() * (25 - 1) + 1);
             gifsSuggestions[i].src = arrayGifs[random].images.preview_webp.url;
             tags(i, random);
         }
         // print tags
         function tags(i, random) {
-            let tags = arrayGifs[random].slug;
+            let tags = arrayGifs[random].title;
             tagsSuggestions[i].innerHTML = tags;
         }
     }
@@ -87,7 +88,6 @@ class FETCHAPI {
 const GIFS_TRENDINGS = new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
     .then((response) => new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, '.trendings__content-gif', 'trendings__content-gif'))
     .catch((error) => console.error(error))
-    .finally(console.log('complete trendings'));
 
 // get data gifs keyword - page load ------------------------------------
 const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').getDataApiKeyword()
@@ -96,7 +96,6 @@ const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').getDataApiKeyw
         new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').renderSuggestions(response)
     })
     .catch((error) => console.error(error))
-    .finally(console.log('complete page load'));
 
 // search category ----------------------------------------------------------
 document.querySelector('#btn-submit').addEventListener('click', function(){
@@ -107,7 +106,6 @@ document.querySelector('#btn-submit').addEventListener('click', function(){
         new FETCHAPI(URL_KEYWORD, APIKEY,  gifKeyword).renderSuggestions(response)
     })
     .catch((error) => console.error(error))
-    .finally(console.log('complete search'));
 })
 
 export default FETCHAPI;

@@ -1,0 +1,158 @@
+.capture-gif {
+    width: 860px;
+    height: 548px;
+    margin: 0 auto;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    margin-bottom: 150px;
+    display: grid;
+    grid-template-rows: 25px 10px 435px 75px;
+    display: none;
+
+    &-title_text {
+        grid-row: 1 / 2;
+        width: 99.5%;
+        height: 25px;
+        margin: 0 auto;
+        @include displayFlex(row, null, null, center);
+        background-image: var(--color-gradient-secondary);
+        margin-top: 2px;
+
+        p {
+            width: 96%;
+            margin-left: .8rem;
+            font-size: 1.2rem;
+            font-family: var(--font-regular);
+            color: var(--color-white-1);
+        }
+
+        &-close {
+            cursor: pointer;
+        }
+    }
+
+    &-camara {
+        display: flex;
+        justify-content: center;
+        grid-row: 3 / 4;
+        width: 97%;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    }
+
+    &-btn {
+        grid-row: 4 / 5;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        a {
+            margin-right: 12px;
+            width: 180px;
+            height: 36px;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+            font-family: var(--font-regular);
+            font-size: 16px;
+            letter-spacing: 0;
+            align-items: center;
+            text-decoration: none;
+
+            span {
+                width: 36px;
+                height: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 35px;
+                border-right: 1px solid #110038;
+            }
+        }
+
+        &-time {
+            display: none;
+            margin-left: 11px;
+            justify-content: center;
+            align-items: center;
+            width: 124px;
+            height: 36px;
+            background: #FFFFFF;
+            border: 1px solid #979797;
+            box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+
+            p {
+                font-family: var(--font-regular);
+                font-size: 16px;
+                color: #110038;
+                letter-spacing: 0;
+            }
+        }
+
+        &-capture {
+            display: flex;
+            background: #F7C9F3;
+            color: #110038;
+        }
+
+        &-stop {
+            display: none;
+            color: #FFFFFF;
+            background-color: #FF6161;
+
+            .span-stop {
+                margin-right: 50px;
+            }
+        }
+
+        &-wrap {
+            display: none;
+        }
+
+        &-upload {
+            display: none;
+            width: 144px;
+            height: 36px;
+            background: #F7C9F3;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-regular);
+            font-size: 16px;
+            color: #110038;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 18px;
+        }
+
+        &-repeat {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: #FFF4FD;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+            font-family: var(--font-regular);
+            font-size: 16px;
+            color: #110038;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 18px;
+        }
+
+        &-cancel {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: #FFF4FD;
+            border: 1px solid #110038;
+            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+            font-family: var(--font-regular);
+            font-size: 16px;
+            color: #110038;
+            letter-spacing: 0;
+        }
+    }
+}

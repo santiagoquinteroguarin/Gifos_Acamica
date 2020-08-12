@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Santiago Quintero Guarin">
+    <meta name="description" content="Create Gifos">
     <title>create gif</title>
     <link rel="stylesheet" href="/styles/main.css">
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
@@ -22,7 +24,7 @@
 
     <div class="wrap-content">
         <!-- create gif -->
-        <section class="create__gif">
+        <section id="create-gif" class="create__gif">
             <div class="create__gif-header">
                 <p>Crear Guifos</p>
             </div>
@@ -52,22 +54,68 @@
         <!-- capture gif -->
         <section class="capture-gif">
             <div class="capture-gif-title_text">
-                <p>Un Chequeo Antes de Empezar</p>
-                <div class="capture-gif-title_text-close">
+                <p class="capture-title-text">Un Chequeo Antes de Empezar</p>
+                <div onclick="location.reload()" class="capture-gif-title_text-close">
                     <img src="/assets/close.svg" alt="">
                 </div>
             </div>
             <div class="capture-gif-camara">
-                <video id="video" autoplay="" playsinline=""></video>
+                <video class="video" id="video" autoplay="" width="100%" height="433"></video>
+                <img class="gif" src="" alt="">
+                
+                <div class="wrap-upload-gif">
+                    <img class="globe-img" src="/assets/globe_img.png" alt="">
+                    <p class="globe-text">Estamos subiendo tu guifo…</p>
+                    <div class="wrap-barra">
+                        <div class="charger"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                        <div class="barra"></div>
+                    </div>
+                    <p class="globe-subtext">Tiempo restante: <span style="text-decoration: line-through;">38 años</span> algunos minutos</p>
+                </div>
+                <div class="sucessfull-gif">
+                    <p class="sucessfull-gif-text">Guifo creado con éxito</p>
+                    <a class="sucessfull-gif-copy" href="https://giphy.com/channel/squinte" target="_blank">Copiar Enlace Guifo</a>
+                    <a id="download-gif" class="sucessfull-gif-download" href="#">Descargar Guifo</a>
+                    <a class="sucessfull-gif-ready" onclick="location.reload()" href="#">Listo</a>
+                </div>
+                
             </div>
             <div class="capture-gif-btn">
-                <a class="capture-gif-btn-capture" id="start" href="#"><span><img src="/assets/camera.svg" alt=""></span>Capturar</a>
-                <a class="capture-gif-btn-stop" id="stop" href="#"><span><img src="/assets/recording_dark.svg" alt=""></span>Listo</a>
+                <div class="capture-gif-btn-time cronometro">
+                    <div id="hms"></div>
+                </div>
+                <a class="capture-gif-btn-capture boton start" id="start" href="#"><span><img src="/assets/camera.svg" alt=""></span>Capturar</a>
+                <a class="capture-gif-btn-stop boton stop" id="stop" href="#"><span class="span-stop"><img src="/assets/recording_dark.svg" alt=""></span>Listo</a>
+                <div class="capture-gif-btn-wrap">
+                    <a class="capture-gif-btn-repeat" id="repeat" onclick="location.reload()" href="#">Repetir Captura</a>
+                    <a class="capture-gif-btn-upload" id="upload" href="#">Subir Guifo</a>
+                </div>
+                <a class="capture-gif-btn-cancel" id="cancel" onclick="location.reload()" href="#">Cancelar</a>
             </div>
         </section>
-        <div class="content-gif">
-            <img class="gif" src="" alt="">
-        </div>
+
     </div>
 
     <div id="myGuifos" class="myGifs">
