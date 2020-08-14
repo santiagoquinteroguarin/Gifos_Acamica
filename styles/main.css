@@ -239,13 +239,24 @@ body {
 }
 
 .header_options ul li:first-child a {
+  width: 14.4rem;
+  height: 3.6rem;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header_options ul li:first-child a:hover:after {
   content: "";
-  top: -7.6px;
-  left: -25.5px;
+  top: 2.4px;
+  left: 1.5px;
   position: absolute;
   width: 13.8rem;
   height: 3.1rem;
@@ -392,8 +403,14 @@ body {
   border-bottom: 0.1rem solid var(--color-blue-2);
 }
 
-.header_options ul li:last-child:hover::after {
+.header_options ul li:last-child a {
+  position: relative;
+}
+
+.header_options ul li:last-child a:hover::after {
   content: "";
+  top: -11.6px;
+  left: -3.5px;
   position: absolute;
   width: 8rem;
   height: 3.6rem;

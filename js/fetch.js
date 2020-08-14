@@ -4,9 +4,11 @@ const URL_KEYWORD = 'https://api.giphy.com/v1/gifs/search?q=';
 const URL_TRENDINGS = 'https://api.giphy.com/v1/gifs/trending?rating=g';
 
 // get number of items
-let gifsSuggestions = document.querySelectorAll('.suggestions__content_gif-giphy');
+let elements = ['.category-one','.category-two','.category-three','.category-four'];
+let tagsSuggestions = ['.tags1','.tags2','.tags3','.tags4'];
+
 let gifsTrendings = document.querySelectorAll('.trendings__content');
-let tagsSuggestions = document.querySelectorAll('.text-tags');
+// let tagsSuggestions = document.querySelectorAll('.text-tags');
 let trendings_tags = document.querySelectorAll('.trendings-tags');
 
 class FETCHAPI {
@@ -52,9 +54,9 @@ class FETCHAPI {
     }
 
     // print gifs of Trendings
-    renderTrendings(arrayGifs, arrayElements, elementClass, nameClass) {
+    renderTrendings(arrayGifs, arrayElements, nameClass) {
         for(let i of arrayElements.keys()){
-            let random = Math.floor(Math.random() * (99 - 1) + 1);
+            let random = Math.floor(Math.random() * (25 - 1) + 1);
             let gif = document.createElement('img');
             gif.src = arrayGifs[random].images.preview_webp.url;
             gif.className = nameClass;
@@ -64,48 +66,89 @@ class FETCHAPI {
         // print tags
         function tags(i, random) {
             let tags = arrayGifs[random].title;
-            trendings_tags[i].innerHTML = tags;
+            trendings_tags[i].innerHTML = "#" + tags.replace(/ +/g," #");tags;
         }
     }
 
     // print gifs of suggestions
-    renderSuggestions(arrayGifs) {
-        console.log(arrayGifs)
-        for(let i of gifsSuggestions.keys()){
+    renderSuggestions(arrayGifs, element, tag) {
+        for(let i of element.keys()){
             let random = Math.floor(Math.random() * (25 - 1) + 1);
-            gifsSuggestions[i].src = arrayGifs[random].images.preview_webp.url;
+            element[i].src = arrayGifs[random].images.preview_webp.url;
             tags(i, random);
         }
         // print tags
         function tags(i, random) {
             let tags = arrayGifs[random].title;
-            tagsSuggestions[i].innerHTML = tags;
+            tag[i].innerHTML = "#" + tags.replace(/ +/g," #");
         }
     }
 }
 
+
 // get data gifs trendings ---------------------------------
-const GIFS_TRENDINGS = new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
-    .then((response) => new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, '.trendings__content-gif', 'trendings__content-gif'))
+new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
+    .then((response) => new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, 'trendings__content-gif'))
     .catch((error) => console.error(error))
 
 // get data gifs keyword - page load ------------------------------------
-const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').getDataApiKeyword()
+let categories = ['pokemon','goku','simpson','rick and morty'];
+for(let i of categories.keys()) {
+    new FETCHAPI(URL_KEYWORD, APIKEY, getCategory(i)).getDataApiKeyword()
     .then((response) => {
         //  render gifs suggestions
-        new FETCHAPI(URL_KEYWORD, APIKEY, 'pokemon').renderSuggestions(response)
+        new FETCHAPI(URL_KEYWORD, APIKEY, getCategory(i)).renderSuggestions(response, getElements(i), getTags(i))
     })
     .catch((error) => console.error(error))
+}
+
+function getCategory(i) {
+    return categories[i];
+}
+
+function getElements(i) {
+    return document.querySelectorAll(elements[i]);
+}
+
+function getTags(i) {
+    let tag = document.querySelectorAll(tagsSuggestions[i])
+    return tag;
+}
 
 // search category ----------------------------------------------------------
 document.querySelector('#btn-submit').addEventListener('click', function(){
     let gifKeyword = document.getElementById('search').value;
-    const GIFS_KEYWORD = new FETCHAPI(URL_KEYWORD, APIKEY, gifKeyword).getDataApiKeyword()
+    trendings(gifKeyword)
+})
+
+function trendings(gifKeyword) {
+    document.querySelector('#title-trendings').innerHTML = gifKeyword;
+    new FETCHAPI(URL_KEYWORD, APIKEY, gifKeyword).getDataApiKeyword()
     .then((response) => {
-        // render gifs suggestions
-        new FETCHAPI(URL_KEYWORD, APIKEY,  gifKeyword).renderSuggestions(response)
+        let elements = document.querySelectorAll('.trendings__content-gif')
+        elements.forEach(element => {
+            element.remove()
+         });
+        new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, 'trendings__content-gif')
     })
     .catch((error) => console.error(error))
+}
+
+// buttons ver mas...
+document.querySelector('.button-one').addEventListener('click', function(){
+    trendings('pokemon')
+})
+
+document.querySelector('.button-two').addEventListener('click', function(){
+    trendings('goku')
+})
+
+document.querySelector('.button-three').addEventListener('click', function(){
+    trendings('simpson')
+})
+
+document.querySelector('.button-four').addEventListener('click', function(){
+    trendings('rick and morty')
 })
 
 export default FETCHAPI;

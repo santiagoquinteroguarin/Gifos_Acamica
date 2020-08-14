@@ -36,7 +36,7 @@
                     </span>
                 </li>
                 <li>
-                    <a href=""><span class="f-letter">M</span>is Guifos</a>
+                    <a href="/html/createGif.html"><span class="f-letter">M</span>is Guifos</a>
                 </li>
             </ul>
         </div>
@@ -47,10 +47,10 @@
             </div>
             <div class="header_search-content">
                 <input onclick="keyword()" id="search" autocomplete="off" class="text" type="search" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button id='btn-submit' class="submit">
+                <div id='btn-submit' class="submit">
                     <span><img id="loupe" src="/assets/Combined Shape.svg" alt=""></span>
                     <a id="btn-search" href="#">Buscar</a>
-                </button>
+                </div>
             </div>
             <div class="keywords" id="keywordId">
                 <a class="keyword_result">Resultado de busqueda sugerido</a>
@@ -68,53 +68,54 @@
         <div class="suggestions__today_we_suggest">
             <p>Hoy te sugerimos:</p>
         </div>
+
         <div class="suggestions__content suggestions__content-1">
             <div class="suggestions__content_tags">
-                <p class="text-tags"></p>
-                <!-- <img src="/assets/close.svg" alt=""> -->
+                <p class="text-tags tags1"></p>
             </div>
             <div class="suggestions__content_gif">
-                <img class="suggestions__content_gif-giphy" src="" alt="">
-                <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
+                <img class="suggestions__content_gif-giphy category-one" src="" alt="">
+                <a class="suggestions__content_gif-btn button-one" href="#">Ver más…</a>
             </div>
         </div>
+
         <div class="suggestions__content suggestions__content-2">
             <div class="suggestions__content_tags">
-                <p class="text-tags"></p>
-                <!-- <img src="/assets/close.svg" alt=""> -->
+                <p class="text-tags tags2"></p>
             </div>
             <div class="suggestions__content_gif">
-                <img class="suggestions__content_gif-giphy" src="" alt="">
-                <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
+                <img class="suggestions__content_gif-giphy category-two" src="" alt="">
+                <a class="suggestions__content_gif-btn button-two" href="#">Ver más…</a>
             </div>
         </div>
+
         <div class="suggestions__content suggestions__content-3">
             <div class="suggestions__content_tags">
-                <p class="text-tags"></p>
-                <!-- <img src="/assets/close.svg" alt=""> -->
+                <p class="text-tags tags3"></p>
             </div>
             <div class="suggestions__content_gif">
-                <img class="suggestions__content_gif-giphy" src="" alt="">
-                <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
+                <img class="suggestions__content_gif-giphy category-three" src="" alt="">
+                <a class="suggestions__content_gif-btn button-three" href="#">Ver más…</a>
             </div>
         </div>
+
         <div class="suggestions__content suggestions__content-4">
             <div class="suggestions__content_tags">
-                <p class="text-tags"></p>
-                <!-- <img src="/assets/close.svg" alt=""> -->
+                <p class="text-tags tags4"></p>
             </div>
             <div class="suggestions__content_gif">
-                <img class="suggestions__content_gif-giphy" src="" alt="">
-                <a class="suggestions__content_gif-btn" href="#">Ver más…</a>
+                <img class="suggestions__content_gif-giphy category-four" src="" alt="">
+                <a class="suggestions__content_gif-btn button-four" href="#">Ver más…</a>
             </div>
         </div>
+        
     </section>
     <!-- End Suggestions -->
 
     <!-- Start Trendings -->
-    <section class="trendings">
+    <section id="trending" class="trendings">
         <div class="trendings__today">
-            <p>Tendencias:</p>
+            <p id="title-trendings">Tendencias:</p>
         </div>
         <div class="trendings__content trendings__content-1">
             <div class="trendings__content-tags">

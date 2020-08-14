@@ -54,12 +54,15 @@
                     }
 
                     a {
+                        width: 14.4rem;
+                        height: 3.6rem;
                         position: relative;
+                        @include displayFlex(null, null, center, center);
 
                         &:hover:after {
                             content: "";
-                            top: -7.6px;
-                            left: -25.5px;
+                            top: 2.4px;
+                            left: 1.5px;
                             position: absolute;
                             width: 13.8rem;
                             height: 3.1rem;
@@ -176,17 +179,25 @@
                 // item 3
                 &:last-child {
                     height: 3.6rem;
+
                     .f-letter {
                         border-bottom: .1rem solid var(--color-blue-2);
                     }
 
-                    &:hover::after {
+                    a {
+                        position: relative;
+
+                        &:hover::after {
                         content: "";
+                        top: -11.6px;
+                        left: -3.5px;
                         position: absolute;
                         width: 8rem;
                         height: 3.6rem;
                         border: var(--border-2);
                     }
+                    }
+                    
 
                     &:active {
                         border: none;
