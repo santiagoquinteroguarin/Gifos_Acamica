@@ -1,0 +1,40 @@
+.searched_words {
+    width: 84vw;
+    min-height: 30px;
+    margin: 0 auto;
+    margin-top: 12px;
+    display: none;
+    flex-flow: row wrap;
+
+    a {
+        position: relative;
+        width: auto;
+        padding: 8px 7px 8px 7px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        background-color: var(--bg-btn);
+        border: .1rem solid var(--color-purple-1);
+        box-shadow: inset -2px -2px 0 0 var(--color-blue-1), inset 2px 2px 0 0 var(--color-white-1);
+        text-decoration: none;
+        font-family: var(--font-regular);
+        font-size: 1.4rem;
+        color: var(--color-white-1);
+        line-height: 1.8rem;
+
+        &:hover {
+            background-color: var(--bg-btn-hover);
+            box-shadow: none;
+        }
+
+        &:hover::after {
+            content: "";
+            position: absolute;
+            top: .1rem;
+            left: 0.5px;
+            width: 95%;
+            height: 30px;
+            border: var(--border);
+        }
+    }
+}

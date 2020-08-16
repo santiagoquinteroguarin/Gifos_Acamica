@@ -3,8 +3,10 @@ const APIKEY = '&api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
 const URL_KEYWORD = 'https://api.giphy.com/v1/gifs/search?q=';
 const URL_TRENDINGS = 'https://api.giphy.com/v1/gifs/trending?rating=g';
 
+let counter = 0;
+
 // get number of items
-let elements = ['.category-one','.category-two','.category-three','.category-four'];
+let elements = ['.category-1','.category-2','.category-3','.category-4'];
 let tagsSuggestions = ['.tags1','.tags2','.tags3','.tags4'];
 
 let gifsTrendings = document.querySelectorAll('.trendings__content');
@@ -85,7 +87,6 @@ class FETCHAPI {
     }
 }
 
-
 // get data gifs trendings ---------------------------------
 new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
     .then((response) => new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, 'trendings__content-gif'))
@@ -117,9 +118,40 @@ function getTags(i) {
 
 // search category ----------------------------------------------------------
 document.querySelector('#btn-submit').addEventListener('click', function(){
+    document.getElementById("keywordId").classList.remove('showK')
     let gifKeyword = document.getElementById('search').value;
-    trendings(gifKeyword)
+    if(gifKeyword == '') {
+        new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
+        .then((response) => {
+            let elements = document.querySelectorAll('.trendings__content-gif')
+            elements.forEach(element => {
+                element.remove()
+            });
+            new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, 'trendings__content-gif')
+        })
+        .catch((error) => console.error(error))
+    } else {
+        // CTA - function trendings
+        trendings(gifKeyword)
+        // create button of searched words
+        renderSearchedWords(gifKeyword);
+    }
 })
+
+function renderSearchedWords(gifKeyword) {
+    let element = document.querySelector('.searched_words');
+    element.style.display = 'flex';
+    let button = document.createElement('a');
+    counter += 1;
+    button.id = 'button-' + counter;
+    button.onclick = function() {getData(this);}
+    button.textContent = gifKeyword;
+    element.appendChild(button)
+}
+
+function getData(id) {
+    trendings(id.textContent);
+}
 
 function trendings(gifKeyword) {
     document.querySelector('#title-trendings').innerHTML = gifKeyword;
@@ -135,19 +167,19 @@ function trendings(gifKeyword) {
 }
 
 // buttons ver mas...
-document.querySelector('.button-one').addEventListener('click', function(){
+document.querySelector('.button-1').addEventListener('click', function(){
     trendings('pokemon')
 })
 
-document.querySelector('.button-two').addEventListener('click', function(){
+document.querySelector('.button-2').addEventListener('click', function(){
     trendings('goku')
 })
 
-document.querySelector('.button-three').addEventListener('click', function(){
+document.querySelector('.button-3').addEventListener('click', function(){
     trendings('simpson')
 })
 
-document.querySelector('.button-four').addEventListener('click', function(){
+document.querySelector('.button-4').addEventListener('click', function(){
     trendings('rick and morty')
 })
 
