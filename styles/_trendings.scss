@@ -74,6 +74,7 @@
 
     &__content {
         position: relative;
+        overflow: hidden;
 
         &-gif {
             width: 100%;
@@ -88,6 +89,7 @@
                 font-size: 14px;
                 color: #FFFFFF;
                 letter-spacing: 0;
+                line-height: 25px;
             }
         }
 
@@ -108,7 +110,6 @@
             width: 98%;
             height: 2.4rem;
             background-image: var(--color-gradient-secondary);
-            @include displayFlex(null, null, null, center);
         }
 
         &:hover::after {

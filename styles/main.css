@@ -741,9 +741,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: 98%;
   height: 2.4rem;
   margin-left: .3rem;
@@ -763,6 +760,7 @@ body {
   font-size: 14px;
   color: var(--color-white-1);
   letter-spacing: 0;
+  line-height: 25px;
 }
 
 .suggestions__content_tags img {
@@ -966,6 +964,7 @@ body {
 
 .trendings__content {
   position: relative;
+  overflow: hidden;
 }
 
 .trendings__content-gif {
@@ -983,6 +982,7 @@ body {
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0;
+  line-height: 25px;
 }
 
 .trendings__content:hover {
@@ -1006,10 +1006,6 @@ body {
   width: 98%;
   height: 2.4rem;
   background-image: var(--color-gradient-secondary);
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .trendings__content:hover::after {
@@ -1271,6 +1267,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1624,7 +1621,8 @@ body {
 }
 
 #hms {
-  font-size: 25px;
+  font-family: var(--font-regular);
+  font-size: 16px;
 }
 
 .searched_words {

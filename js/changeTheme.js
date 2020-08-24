@@ -2,39 +2,43 @@
 let changeThemeLigth = document.querySelector('.change_theme-light');
 let changeThemeDark = document.querySelector('.change_theme-dark');
 
-// CTA - change theme to ligth
-changeThemeLigth.addEventListener('click', function() {
-    document.documentElement.setAttribute('data-theme', 'light');
-    // change assets custom
-    changeCustom();
-})
-
-// CTA - change theme to dark
-changeThemeDark.addEventListener('click', function() {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    // change assets custom
-    changeCustom();
-})
-
 // render logo for themes
 function changeCustom() {
     let element = document.getElementById('html').attributes;
     if(element[2].value === 'dark') {
-        // change logo to dark
-        let logo = document.querySelector('.img-logo')
-        logo.src = '/assets/gifOF_logo_dark.png';
-        // change arrow down themes
+        darkTheme();
+    } else {
+        lightTheme();
+    }
+}
+
+function darkTheme() {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem("theme", "dark");
+    // change logo to dark
+    let logo = document.querySelector('.img-logo');
+    logo.setAttribute('src','/assets/gifOF_logo_dark.png');
+    // change arrow down themes
+    if(document.getElementById('arrow')) {
         let arrowDown = document.getElementById('arrow');
         arrowDown.src = '/assets/forward.svg';
-    } else {
-        // change logo to ligth
-        let logo = document.querySelector('.img-logo')
-        logo.src = '/assets/gifOF_logo.png';
-        // change arrow down themes
+    }
+}
+
+function lightTheme() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem("theme", "light");
+    // change logo to ligth
+    let logo = document.querySelector('.img-logo');
+    logo.setAttribute('src','/assets/gifOF_logo.png');
+    // change arrow down themes
+    if(document.getElementById('arrow')) {
         let arrowDown = document.getElementById('arrow');
         arrowDown.src = '/assets/dropdown.svg';
     }
 }
+
+localStorage.getItem("theme") == "dark" ? darkTheme() : lightTheme();
 
 changeCustom();
 
@@ -100,3 +104,17 @@ window.onclick = function (e) {
         keyword.classList.remove('showK');
     }
 };
+
+// CTA - change theme to ligth
+changeThemeLigth.addEventListener('click', function() {
+    document.documentElement.setAttribute('data-theme', 'light');
+    // change assets custom
+    changeCustom();
+})
+
+// CTA - change theme to dark
+changeThemeDark.addEventListener('click', function() {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    // change assets custom
+    changeCustom();
+})

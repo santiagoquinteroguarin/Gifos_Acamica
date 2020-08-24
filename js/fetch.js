@@ -2,6 +2,7 @@
 const APIKEY = '&api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
 const URL_KEYWORD = 'https://api.giphy.com/v1/gifs/search?q=';
 const URL_TRENDINGS = 'https://api.giphy.com/v1/gifs/trending?rating=g';
+const URL_TAGS = 'https://api.giphy.com/v1/gifs/search/tags?q=';
 
 let counter = 0;
 
@@ -55,6 +56,17 @@ class FETCHAPI {
         }
     }
 
+    // fetch data gifs Tags
+    async getDataApiTags() {
+        try {
+            const answer = await fetch(`${this.getUrl}${this.getKeyword}${this.getApiKey}`);
+            let data = await answer.json();
+            return data.data;
+        } catch {
+            console.error(error);
+        }
+    }
+
     // print gifs of Trendings
     renderTrendings(arrayGifs, arrayElements, nameClass) {
         for(let i of arrayElements.keys()){
@@ -87,6 +99,44 @@ class FETCHAPI {
     }
 }
 
+document.getElementById('search').addEventListener('keypress', onKeyDown);
+let word = '';
+let vector = new Array();
+const elementos = document.querySelectorAll('.keyword_result');
+
+document.getElementById('search').addEventListener('keydown', borrar);
+
+function borrar(event) {
+    const key = event.key;
+    if(key === "Backspace" || key === 'Delete') {
+        word = '';
+    }
+}
+
+function onKeyDown(event) {
+    let key = event.key; // "A", "1", "Enter", "ArrowRight"...
+    word += key;
+    new FETCHAPI(URL_TAGS, APIKEY, word).getDataApiTags()
+        .then((response) => ciclo(response))
+        .catch((error) => console.log(error))
+}
+
+function ciclo(array) {
+    for(let i of array.keys()) {
+        vector.push(array[i].name)
+        if(i >= 2) {
+            break;
+        }
+    }
+
+    for(let i of elementos.keys()) {
+        elementos[i].innerHTML = vector[i];
+    }
+
+    vector = [];
+}
+
+
 // get data gifs trendings ---------------------------------
 new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
     .then((response) => new FETCHAPI(URL_TRENDINGS, APIKEY).renderTrendings(response, gifsTrendings, 'trendings__content-gif'))
@@ -115,6 +165,7 @@ function getTags(i) {
     let tag = document.querySelectorAll(tagsSuggestions[i])
     return tag;
 }
+
 
 // search category ----------------------------------------------------------
 document.querySelector('#btn-submit').addEventListener('click', function(){
@@ -184,3 +235,5 @@ document.querySelector('.button-4').addEventListener('click', function(){
 })
 
 export default FETCHAPI;
+
+// window.onclick = function (e) {if (!e.target.matches){}}

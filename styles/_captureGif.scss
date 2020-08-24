@@ -33,6 +33,7 @@
 
     &-camara {
         display: flex;
+        position: relative;
         justify-content: center;
         grid-row: 3 / 4;
         width: 97%;
