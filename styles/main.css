@@ -538,9 +538,10 @@ body {
   cursor: pointer;
   position: relative;
   outline: none;
+  text-decoration: none;
 }
 
-.header_search-content .submit a {
+.header_search-content .submit div {
   margin-left: .4rem;
   text-decoration: none;
   font-family: var(--font-regular);
@@ -612,6 +613,7 @@ body {
   padding-left: 1.6rem;
   position: relative;
   outline: none;
+  text-decoration: none;
 }
 
 .header_search .keywords .keyword_result:first-child {
@@ -1527,7 +1529,7 @@ body {
 
 .myGifs {
   margin: 0 auto;
-  width: 85vw;
+  width: 88vw;
   height: 30px;
   margin-bottom: 20px;
   background: #FFFAFE;
@@ -1669,5 +1671,20 @@ body {
   width: 95%;
   height: 30px;
   border: var(--border);
+}
+
+.container-myGifos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  margin: 0 auto;
+  width: 89%;
+}
+
+.container-myGifos .new-gif img {
+  width: 288px;
+  height: 298px;
 }
 /*# sourceMappingURL=main.css.map */

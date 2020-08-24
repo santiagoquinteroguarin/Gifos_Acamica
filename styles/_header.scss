@@ -270,14 +270,16 @@
                 cursor: pointer;
                 position: relative;
                 outline: none;
+                text-decoration: none;
 
-                a {
+                div {
                     margin-left: .4rem;
                     text-decoration: none;
                     font-family: var(--font-regular);
                     font-size: 1.6rem;
                     color: var(--color-grey-4);
                     line-height: 1.8rem;
+                    
                 }
 
                 span {
@@ -331,6 +333,7 @@
                 padding-left: 1.6rem;
                 position: relative;
                 outline: none;
+                text-decoration: none;
 
                 &:first-child {
                     margin-top: 1.7rem;

@@ -14,9 +14,9 @@ function captureGif() {
 	createFunction();
 }
 
-const API_KEY = 'ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
+const API_KEY = '?api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI';
 const URL_UPLOAD = 'https://upload.giphy.com/v1/gifs';
-const URL_ID_GIF = 'http://api.giphy.com/v1/gifs';
+const URL_ID_GIF = 'https://api.giphy.com/v1/gifs/';
 
 function createFunction() {
 
@@ -163,7 +163,7 @@ document.getElementById('stop').onclick = function () {
 };
 
 async function urlGif(id) {
-	let response = await fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=ebk0jnF3WxzqiudF7E9fiRMumlMantoI`);
+	let response = await fetch(`${URL_ID_GIF}${id}${API_KEY}`);
 	let data = await response.json();
 	let urlImg = await data.data.images.downsized_large.url;
 	console.log(urlImg)

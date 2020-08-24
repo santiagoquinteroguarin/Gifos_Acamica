@@ -99,6 +99,7 @@ class FETCHAPI {
     }
 }
 
+// CTA - input search
 document.getElementById('search').addEventListener('keypress', onKeyDown);
 let word = '';
 let vector = new Array();
@@ -117,9 +118,13 @@ function onKeyDown(event) {
     let key = event.key; // "A", "1", "Enter", "ArrowRight"...
     word += key;
     new FETCHAPI(URL_TAGS, APIKEY, word).getDataApiTags()
-        .then((response) => ciclo(response))
+        .then((response) => {
+            ciclo(response)
+            
+        })
         .catch((error) => console.log(error))
 }
+
 
 function ciclo(array) {
     for(let i of array.keys()) {
@@ -132,10 +137,8 @@ function ciclo(array) {
     for(let i of elementos.keys()) {
         elementos[i].innerHTML = vector[i];
     }
-
     vector = [];
 }
-
 
 // get data gifs trendings ---------------------------------
 new FETCHAPI(URL_TRENDINGS, APIKEY).getDataApi()
@@ -166,7 +169,6 @@ function getTags(i) {
     return tag;
 }
 
-
 // search category ----------------------------------------------------------
 document.querySelector('#btn-submit').addEventListener('click', function(){
     document.getElementById("keywordId").classList.remove('showK')
@@ -187,6 +189,13 @@ document.querySelector('#btn-submit').addEventListener('click', function(){
         // create button of searched words
         renderSearchedWords(gifKeyword);
     }
+
+    let elem = document.querySelector('.submit')
+    elem.disabled = true;
+    elem.style.background = '#E6E6E6';
+    elem.style.border = 'none';
+    document.querySelector('#loupe').src = '/assets/Combined Shape.svg';
+    document.querySelector('#btn-search').style.color = 'var(--color-grey-4)';
 })
 
 function renderSearchedWords(gifKeyword) {
@@ -234,6 +243,30 @@ document.querySelector('.button-4').addEventListener('click', function(){
     trendings('rick and morty')
 })
 
-export default FETCHAPI;
+function validation(word) {
+    if(word === 'null' || word === 'undefined') {
+        console.log('no')
+    } else {
+        trendings(word)
+        document.getElementById("keywordId").classList.remove('showK')
+    }
+}
 
-// window.onclick = function (e) {if (!e.target.matches){}}
+document.querySelector('.keyword_result-1').addEventListener('click', function(){
+    let word = document.querySelector('.keyword_result-1').textContent;
+    validation(word)
+})
+
+document.querySelector('.keyword_result-2').addEventListener('click', function(){
+    let word = document.querySelector('.keyword_result-2').textContent;
+    validation(word)
+})
+
+document.querySelector('.keyword_result-3').addEventListener('click', function(){
+    let word = document.querySelector('.keyword_result-3').textContent;
+    validation(word)
+})
+
+
+
+export default FETCHAPI;
