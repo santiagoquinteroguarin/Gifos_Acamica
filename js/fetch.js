@@ -194,7 +194,7 @@ document.querySelector('#btn-submit').addEventListener('click', function(){
     elem.disabled = true;
     elem.style.background = '#E6E6E6';
     elem.style.border = 'none';
-    document.querySelector('#loupe').src = '/assets/Combined Shape.svg';
+    document.querySelector('#loupe').src = '/assets/Combined_Shape.svg';
     document.querySelector('#btn-search').style.color = 'var(--color-grey-4)';
 })
 

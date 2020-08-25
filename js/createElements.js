@@ -36,4 +36,5 @@ function createTrendings(container) {
         container.appendChild(item)
     }
 }
+
 createElements()

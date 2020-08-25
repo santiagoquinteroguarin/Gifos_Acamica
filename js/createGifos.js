@@ -4,6 +4,14 @@ if (localStorage.getItem("myGifs")) {
   myGifsArray = JSON.parse(localStorage.getItem("myGifs"));
 }
 
+// created items loader
+for(let i = 1; i <= 23; i++) {
+	let wrap = document.querySelector('.wrap-barra')
+	let item = document.createElement('div')
+	item.className = 'barra';
+	wrap.appendChild(item)
+}
+
 // create gif
 function captureGif() {
 	// get element of instructions for create a gif

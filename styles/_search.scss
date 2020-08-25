@@ -1,0 +1,155 @@
+// input search
+.header_search {
+    grid-column: 2 / 8;
+    display: grid;
+    grid-template-rows: 2.3rem 1fr;
+    background: var(--color-white-2);
+    box-shadow: var(--box-shadow-2);
+    position: relative;
+
+    &-description {
+        grid-template-rows: 1 / 2;
+        background-image: var(--color-gradient-secondary);
+        @include displayFlex(null, null, null, center);
+        box-shadow: var(--box-shadow-5);
+        p {
+            margin: .5rem;
+            font-family: var(--font-bold);
+            font-size: 1.4rem;
+            color: var(--color-white-1);
+        }
+    }
+
+    &-content {
+        grid-template-rows: 2 / 3;
+        @include displayFlex(null, null, null, center);
+
+        .text {
+            margin: 0 1rem 0 1.5rem;
+            width: 88%;
+            height: 4.8rem;
+            background: var(--color-white-1);
+            border: 1px solid var(--color-grey-2);
+            box-shadow: var(--box-shadow-6);
+            padding-left: 1.6rem;
+            outline: none;
+
+            &::placeholder {
+                font-family: var(--font-regular);
+                font-size: 1.6rem;
+                color: var(--color-grey-1);
+                line-height: 1.8rem;
+            }
+        }
+
+        .submit {
+            width: 10.2rem;
+            height: 3.6rem;
+            background: var(--color-white-2);
+            border: 1px solid var(--color-grey-3);
+            box-shadow: var(--box-shadow-4);
+            @include displayFlex(null, null, flex-start, center);
+            cursor: pointer;
+            position: relative;
+            outline: none;
+            text-decoration: none;
+
+            div {
+                margin-left: .4rem;
+                text-decoration: none;
+                font-family: var(--font-regular);
+                font-size: 1.6rem;
+                color: var(--color-grey-4);
+                line-height: 1.8rem;
+                
+            }
+
+            span {
+                width: 3rem;
+                height: inherit;
+                @include displayFlex(null, null, center, center);
+            }
+
+            &:active {
+                border: var(--border-4);
+            }
+
+            &:active:after {
+                content: "";
+                position: absolute;
+                left: .2rem;
+                width: 9.5rem;
+                height: 3rem;
+                border: var(--border);
+            }
+        }
+    }
+
+    .keywords {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        bottom: -170px;
+        width: 1149px;
+        height: 17rem;
+        background: var(--color-white-2);
+        box-shadow: var(--box-shadow-2);
+
+        // @include displayFlex(column, wrap, null, null);
+
+        .keyword_result {
+            margin-left: 1.6rem;
+            width: 991px;
+            height: 3.4rem;
+            @include displayFlex(null, null, null, center);
+            background: var(--color-white-5);
+            border: var(--border-4);
+            box-shadow: var(--box-shadow-4);
+            font-family: var(--font-regular);
+            font-size: 1.6rem;
+            color: var(--color-text);
+            letter-spacing: 0;
+            line-height: 2.2rem;
+            padding-left: 1.6rem;
+            position: relative;
+            outline: none;
+            text-decoration: none;
+
+            &:first-child {
+                margin-top: 1.7rem;
+            }
+            
+            &:nth-child(2) {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            &:last-child {
+                margin-bottom: 1.6rem;
+            }
+
+            &:hover {
+                background: var(--color-white-6);
+                border: var(--border-4);
+                box-shadow: var(--box-shadow-4);
+                cursor: pointer;
+            }
+
+            &:hover::after {
+                content: "";
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                width: 1003px;
+                height: 30px;
+                border: var(--border);
+            }
+        }
+    }
+
+    .showK {
+        @include displayFlex(column, wrap, null, null);
+    }
+}
