@@ -267,6 +267,4 @@ document.querySelector('.keyword_result-3').addEventListener('click', function()
     validation(word)
 })
 
-
-
 export default FETCHAPI;
